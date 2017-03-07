@@ -1,9 +1,10 @@
-import replication
-import autorep
 import networkx as nx
 
+import autorep
+import autorep.replication
 
-class AllMasterGraphBuilder(replication.AbstractReplicationGraphBuilder):
+
+class AllMasterGraphBuilder(autorep.replication.AbstractReplicationGraphBuilder):
 
     def get_changes(self, hostlist, currentstate):
         dg=nx.DiGraph()

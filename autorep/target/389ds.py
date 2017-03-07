@@ -1,4 +1,4 @@
-from autorep import envconfig
+import envconfig
 import ldap
 import ldap.modlist as modlist
 import tempfile

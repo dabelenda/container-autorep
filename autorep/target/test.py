@@ -1,5 +1,0 @@
-
-
-class Driver(AbstractTargetDriver):
-    pass
-

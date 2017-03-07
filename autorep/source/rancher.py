@@ -1,6 +1,6 @@
 from . import AbstractSourceDriver
+import envconfig
 
-from autorep import envconfig
 import urllib.request
 import json
 
