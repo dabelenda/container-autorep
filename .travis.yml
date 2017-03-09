@@ -6,6 +6,14 @@ language: python
 python:
   - "3.6"
 
+
+addons:
+  apt:
+    packages:
+      - libsasl2-dev
+      - libldap2-dev
+      - libssl-dev
+
 services:
   - docker
 
