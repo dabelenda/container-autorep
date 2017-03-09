@@ -20,7 +20,7 @@ services:
 install:
   - docker build --no-cache -t dabelenda/autorep:${TRAVIS_BRANCH} .;
     docker tag $(docker images -q dabelenda/autorep:${TRAVIS_BRANCH}) dabelenda/autorep:latest
-  - install --no-cache-dir -r requirements.txt
+  - install -r requirements.txt
 
 script:
   - python -m unittest discover
