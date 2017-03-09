@@ -9,8 +9,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY ./autorep/ ./autorep
 COPY ./envconfig.py /usr/local/lib/python3.6/site-packages/envconfig.py
 
-COPY ./tests/ ./tests
-
 ENTRYPOINT [ "python3" ]
 
 CMD [ "-m", "autorep" ]

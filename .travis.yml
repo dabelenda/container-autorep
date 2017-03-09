@@ -1,0 +1,30 @@
+---
+sudo: required
+
+language: python
+
+python:
+  - "3.6"
+
+services:
+  - docker
+
+install:
+  - docker build --no-cache -t dabelenda/autorep:${TRAVIS_BRANCH} .;
+    docker tag $(docker images -q dabelenda/autorep:${TRAVIS_BRANCH}) dabelenda/autorep:latest
+  - install --no-cache-dir -r requirements.txt
+
+script:
+  - python -m unittest discover
+
+after_success:
+  - if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
+      docker login -u="${TRAVIS_SECRET_DOCKER_USERNAME}" -p="${TRAVIS_SECRET_DOCKER_PASSWORD}";
+      if [ "${TRAVIS_BRANCH}" == "master" ]; then
+      $bb
+        docker push dabelenda/autorep:latest;
+      else
+        docker push dabelenda/autorep:${TRAVIS_BRANCH};
+      fi
+      docker logout;
+    fi
