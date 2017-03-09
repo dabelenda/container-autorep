@@ -29,7 +29,6 @@ after_success:
   - if [ "${TRAVIS_PULL_REQUEST}" == "false" ]; then
       docker login -u="${TRAVIS_SECRET_DOCKER_USERNAME}" -p="${TRAVIS_SECRET_DOCKER_PASSWORD}";
       if [ "${TRAVIS_BRANCH}" == "master" ]; then
-      $bb
         docker push dabelenda/autorep:latest;
       else
         docker push dabelenda/autorep:${TRAVIS_BRANCH};
