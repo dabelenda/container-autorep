@@ -32,6 +32,6 @@ after_success:
         docker push dabelenda/autorep:latest;
       else
         docker push dabelenda/autorep:${TRAVIS_BRANCH};
-      fi
+      fi;
       docker logout;
     fi
